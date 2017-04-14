@@ -25,7 +25,7 @@ SECRET_KEY = 'skl#1y^32px+vdh0et_*3w30w0+c)ab_(29st-4l6g@hl^xpxh'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['buiduythanh6291.pythonanywhere.com',]
 
 
 # Application definition
@@ -64,7 +64,7 @@ LOGOUT_REDIRECT_URL = LOGIN_REDIRECT_URL
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, "templates")],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -128,3 +128,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# will be served
+STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static-serve")
+
+# will not be served, long term storage
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static-storage"),
+]
+
+CRISPY_TEMPLATE_PACK = "bootstrap3"
